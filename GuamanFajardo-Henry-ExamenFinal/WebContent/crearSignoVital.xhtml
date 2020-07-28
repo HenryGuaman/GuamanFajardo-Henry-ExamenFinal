@@ -60,9 +60,9 @@
 			</h:column>	
 			<h:column>
 				<f:facet name="header">Temperatura</f:facet>
-				<h:inputText value="#{c.temperatura}" size="10"
+				<h:inputText value="#{c.temperatua}" size="10"
 					rendered="#{c.editable}" />
-				<h:outputText value="#{c.temperatura}" rendered="#{not c.editable}" />
+				<h:outputText value="#{c.temperatua}" rendered="#{not c.editable}" />
 			</h:column>			
 			<h:column>
 				<f:facet name="header">Saturacion</f:facet>
@@ -95,10 +95,10 @@
 			<li >Frecuencia Respiratoria<h:inputText size="12" value="#{signosVitalesBean.frecuenciaRespiratoria}"/></li>
 		</ul>
 		<ul style="text-align:center;" >
-			<li >Temperatura<h:inputText size="12" value="#{signosVitalesBean.temperatura}"/></li>
+			<li >Temperatura<h:inputText size="12" value="#{signosVitalesBean.temperatua}"/></li>
 		</ul>
 		<ul style="text-align:center;" >
-			<li >Saturacion<h:inputText size="12" value="#{citaMedicaBean.saturacion}"/></li>
+			<li >Saturacion<h:inputText size="12" value="#{signosVitalesBean.saturacion}"/></li>
 		</ul>
 		<div style="text-align:center;">
 			<h:commandButton  value="Agregar" action="#{signosVitalesBean.add}" />
