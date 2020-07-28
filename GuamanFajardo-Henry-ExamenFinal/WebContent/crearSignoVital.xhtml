@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+    
+<h:head>
+		
+	
+	<title>Signo Vital</title>
+	<style>
+		.tabla {
+			border-collapse: collapse;
+		}
+		
+		.cabeceraTabla {
+			text-align: center;
+			background: none repeat scroll 0 0 #E5E5E5;
+			border-bottom: 5px solid #BBBBBB;
+			padding: 8px;
+		}
+		
+		.filaPar {
+			text-align: center;
+			background: none repeat scroll 0 0 #FFFFFFF;
+			border-top: 5px solid #BBBBBB;
+		}
+		
+		.filaImpar {
+			text-align: center;
+			background: none repeat scroll 0 0 #F9F9F9;
+			border-top: 5px solid #BBBBBB;
+		}
+	</style>
+	
+</h:head> 
+<body> 
+	
+	<h:form >
+		<h:dataTable border="1" style="margin: 0 auto;" value="#{signosVitalesBean.list}" var="c" styleClass="tabla"
+			headerClass="cabeceraTabla" rowClasses="filaPar,filaImpar">
+			
+			<h:column>
+				<f:facet name="header">Presion</f:facet>
+				<h:inputText value="#{c.presion}" size="10"
+					rendered="#{c.editable}" />
+				<h:outputText value="#{c.presion}" rendered="#{not c.editable}" />
+			</h:column>			
+			<h:column>
+				<f:facet name="header">Frecuencia Cardiaca</f:facet>
+				<h:inputText value="#{c.frecuenciaCardiaca}" size="10"
+					rendered="#{c.editable}" />
+				<h:outputText value="#{c.frecuenciaCardiaca}" rendered="#{not c.editable}" />
+			</h:column>	
+			<h:column>
+				<f:facet name="header">Frecuencia Respiratoria</f:facet>
+				<h:inputText value="#{c.frecuenciaRespiratoria}" size="10"
+					rendered="#{c.editable}" />
+				<h:outputText value="#{c.frecuenciaRespiratoria}" rendered="#{not c.editable}" />
+			</h:column>	
+			<h:column>
+				<f:facet name="header">Temperatura</f:facet>
+				<h:inputText value="#{c.temperatura}" size="10"
+					rendered="#{c.editable}" />
+				<h:outputText value="#{c.temperatura}" rendered="#{not c.editable}" />
+			</h:column>			
+			<h:column>
+				<f:facet name="header">Saturacion</f:facet>
+				<h:inputText value="#{c.saturacion}" size="10"
+					rendered="#{c.editable}" />
+				<h:outputText value="#{c.saturacion}" rendered="#{not c.editable}" />
+			</h:column>	
+			<h:column>
+				<f:facet name="header">Accion</f:facet>
+				<h:commandLink value="Eliminar" action="#{signosVitalesBean.remove(c)}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Accion</f:facet>
+				<h:commandLink value="Editar" action="#{signosVitalesBean.edit(c)}"
+					rendered="#{not c.editable}" />
+				<h:commandLink value="Guardar" action="#{signosVitalesBean.save(c)}"
+					rendered="#{c.editable}" />
+			</h:column>
+		</h:dataTable>
+		<br></br>
+		<br></br>
+		<br></br>
+		<ul style="text-align:center;" >
+			<li >Presion:<h:inputText size="12" value="#{signosVitalesBean.presion}"/></li>
+		</ul>
+		<ul style="text-align:center;" >
+			<li >Frecuecnia Cardiaca<h:inputText size="12" value="#{signosVitalesBean.frecuenciaCardiaca}"/></li>
+		</ul>
+		<ul style="text-align:center;" >
+			<li >Frecuencia Respiratoria<h:inputText size="12" value="#{signosVitalesBean.frecuenciaRespiratoria}"/></li>
+		</ul>
+		<ul style="text-align:center;" >
+			<li >Temperatura<h:inputText size="12" value="#{signosVitalesBean.temperatura}"/></li>
+		</ul>
+		<ul style="text-align:center;" >
+			<li >Saturacion<h:inputText size="12" value="#{citaMedicaBean.saturacion}"/></li>
+		</ul>
+		<div style="text-align:center;">
+			<h:commandButton  value="Agregar" action="#{signosVitalesBean.add}" />
+		</div>
+	</h:form>
+	
+</body> 
+</html>
