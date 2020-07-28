@@ -8,7 +8,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import ec.edu.ups.entidad.Paciente;
-
+@Stateless
 public class PacienteFacade extends AbstractFacade<Paciente>{
 
 	

@@ -7,7 +7,7 @@
 <h:head>
 		
 	
-	<title>Categorías</title>
+	<title>Cita Medica</title>
 	<style>
 		.tabla {
 			border-collapse: collapse;
@@ -37,39 +37,49 @@
 <body> 
 	
 	<h:form >
-		<h:dataTable border="1" style="margin: 0 auto;" value="#{CitaMedicaBean.list}" var="c" styleClass="tabla"
+		<h:dataTable border="1" style="margin: 0 auto;" value="#{citaMedicaBean.list}" var="c" styleClass="tabla"
 			headerClass="cabeceraTabla" rowClasses="filaPar,filaImpar">
 			<h:column >
 				<f:facet name="header">Codigo</f:facet>#{c.codigo}</h:column>
 			<h:column>
 				<f:facet name="header">Sintoma</f:facet>
-				<h:inputText value="#{c.descripcion}" size="10"
+				<h:inputText value="#{c.sintomas}" size="10"
 					rendered="#{c.editable}" />
-				<h:outputText value="#{c.descripcion}" rendered="#{not c.editable}" />
+				<h:outputText value="#{c.sintomas}" rendered="#{not c.editable}" />
 			</h:column>			
 			<h:column>
-				<f:facet name="header">Alergia</f:facet>
-				<h:commandLink value="Eliminar" action="#{categoriaBean.delete(c)}" />
-			</h:column>
-			
-				<f:facet name="header">Enfermedad</f:facet>
-				<h:inputText value="#{c.descripcion}" size="10"
+				<f:facet name="header">Alergias</f:facet>
+				<h:inputText value="#{c.alergias}" size="10"
 					rendered="#{c.editable}" />
-				<h:outputText value="#{c.descripcion}" rendered="#{not c.editable}" />
-			</h:column>			
+				<h:outputText value="#{c.alergias}" rendered="#{not c.editable}" />
+			</h:column>	
+			<h:column>
+				<f:facet name="header">Enfermedad</f:facet>
+				<h:inputText value="#{c.enfermedadesPrevias}" size="10"
+					rendered="#{c.editable}" />
+				<h:outputText value="#{c.enfermedadesPrevias}" rendered="#{not c.editable}" />
+			</h:column>	
 			<h:column>
 				<f:facet name="header">Fecha</f:facet>
-				<h:commandLink value="Eliminar" action="#{categoriaBean.delete(c)}" />
-			</h:column>
+				<h:inputText value="#{c.fecha}" size="10"
+					rendered="#{c.editable}" />
+				<h:outputText value="#{c.fecha}" rendered="#{not c.editable}" />
+			</h:column>			
 			<h:column>
 				<f:facet name="header">Hora</f:facet>
-				<h:commandLink value="Eliminar" action="#{categoriaBean.delete(c)}" />
+				<h:inputText value="#{c.hora}" size="10"
+					rendered="#{c.editable}" />
+				<h:outputText value="#{c.hora}" rendered="#{not c.editable}" />
+			</h:column>	
+			<h:column>
+				<f:facet name="header">Accion</f:facet>
+				<h:commandLink value="Eliminar" action="#{citaMedicaBean.delete(c)}" />
 			</h:column>
 			<h:column>
 				<f:facet name="header">Accion</f:facet>
-				<h:commandLink value="Editar" action="#{categoriaBean.edit(c)}"
+				<h:commandLink value="Editar" action="#{citaMedicaBean.edit(c)}"
 					rendered="#{not c.editable}" />
-				<h:commandLink value="Guardar" action="#{categoriaBean.save(c)}"
+				<h:commandLink value="Guardar" action="#{citaMedicaBean.save(c)}"
 					rendered="#{c.editable}" />
 			</h:column>
 		</h:dataTable>
@@ -77,10 +87,22 @@
 		<br></br>
 		<br></br>
 		<ul style="text-align:center;" >
-			<li >Agregar Nueva Categoría:<h:inputText size="12" value="#{categoriaBean.descripcion}"/></li>
+			<li >Agregar Sintomas:<h:inputText size="12" value="#{citaMedicaBean.sintomas}"/></li>
+		</ul>
+		<ul style="text-align:center;" >
+			<li >Agregar Alergias:<h:inputText size="12" value="#{citaMedicaBean.alergias}"/></li>
+		</ul>
+		<ul style="text-align:center;" >
+			<li >Agregar Enfermedades PRevias:<h:inputText size="12" value="#{citaMedicaBean.enfermedadesPrevias}"/></li>
+		</ul>
+		<ul style="text-align:center;" >
+			<li >Agregar Fecha:<h:inputText size="12" value="#{citaMedicaBean.fecha}"/></li>
+		</ul>
+		<ul style="text-align:center;" >
+			<li >Agregar Hora:<h:inputText size="12" value="#{citaMedicaBean.hora}"/></li>
 		</ul>
 		<div style="text-align:center;">
-			<h:commandButton class="btn btn-action" value="Agregar" action="#{categoriaBean.add}" />
+			<h:commandButton  value="Agregar" action="#{ccitaMedicaBean.add}" />
 		</div>
 	</h:form>
 	

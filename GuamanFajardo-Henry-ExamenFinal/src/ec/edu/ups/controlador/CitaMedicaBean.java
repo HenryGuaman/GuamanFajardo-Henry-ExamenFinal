@@ -6,6 +6,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.annotation.FacesConfig;
 import javax.inject.Named;
 
 import ec.edu.ups.ejb.CitaMedicaFacade;
@@ -13,6 +14,7 @@ import ec.edu.ups.ejb.PacienteFacade;
 import ec.edu.ups.ejb.SignosVitalesFacade;
 import ec.edu.ups.entidad.CitaMedica;
 
+@FacesConfig(version = FacesConfig.Version.JSF_2_3)
 @Named
 @SessionScoped
 public class CitaMedicaBean implements Serializable{
@@ -85,6 +87,32 @@ public class CitaMedicaBean implements Serializable{
 
 	public void setHora(String hora) {
 		this.hora = hora;
+	}
+	
+	
+
+	public CitaMedicaFacade getEjbCitaMedicaFacade() {
+		return ejbCitaMedicaFacade;
+	}
+
+	public void setEjbCitaMedicaFacade(CitaMedicaFacade ejbCitaMedicaFacade) {
+		this.ejbCitaMedicaFacade = ejbCitaMedicaFacade;
+	}
+
+	public PacienteFacade getEjbPacienteFacade() {
+		return ejbPacienteFacade;
+	}
+
+	public void setEjbPacienteFacade(PacienteFacade ejbPacienteFacade) {
+		this.ejbPacienteFacade = ejbPacienteFacade;
+	}
+
+	public SignosVitalesFacade getEjbSignosVitalesFacade() {
+		return ejbSignosVitalesFacade;
+	}
+
+	public void setEjbSignosVitalesFacade(SignosVitalesFacade ejbSignosVitalesFacade) {
+		this.ejbSignosVitalesFacade = ejbSignosVitalesFacade;
 	}
 
 	public String add() {
