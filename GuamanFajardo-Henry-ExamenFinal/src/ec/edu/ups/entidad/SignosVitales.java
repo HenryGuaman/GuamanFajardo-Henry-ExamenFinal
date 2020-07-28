@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
@@ -28,6 +30,10 @@ public class SignosVitales implements Serializable{
 	
 	@OneToOne(cascade = CascadeType.ALL, mappedBy = "signosVit")
 	private CitaMedica citamedica;
+	
+	@ManyToOne
+	@JoinColumn
+	private Paciente paciente;
 	
 	@Transient
 	private boolean editable;

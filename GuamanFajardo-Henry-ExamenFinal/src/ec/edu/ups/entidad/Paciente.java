@@ -30,6 +30,9 @@ public class Paciente implements Serializable{
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "paciente")
 	private List<CitaMedica> citamedica;
 	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "paciente")
+	private List<SignosVitales> signosVitales;
+	
 	@Transient
 	private boolean editable;
 	
