@@ -39,8 +39,7 @@
 	<h:form >
 		<h:dataTable border="1" style="margin: 0 auto;" value="#{citaMedicaBean.list}" var="c" styleClass="tabla"
 			headerClass="cabeceraTabla" rowClasses="filaPar,filaImpar">
-			<h:column >
-				<f:facet name="header">Codigo</f:facet>#{c.codigo}</h:column>
+			
 			<h:column>
 				<f:facet name="header">Sintoma</f:facet>
 				<h:inputText value="#{c.sintomas}" size="10"
@@ -102,7 +101,7 @@
 			<li >Agregar Hora:<h:inputText size="12" value="#{citaMedicaBean.hora}"/></li>
 		</ul>
 		<div style="text-align:center;">
-			<h:commandButton  value="Agregar" action="#{ccitaMedicaBean.add}" />
+			<h:commandButton  value="Agregar" action="#{citaMedicaBean.add}" />
 		</div>
 	</h:form>
 	

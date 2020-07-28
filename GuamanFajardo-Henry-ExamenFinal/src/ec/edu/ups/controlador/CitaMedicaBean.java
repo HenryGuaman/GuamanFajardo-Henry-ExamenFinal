@@ -27,9 +27,9 @@ public class CitaMedicaBean implements Serializable{
 	@EJB
 	private SignosVitalesFacade ejbSignosVitalesFacade;
 	
-	private List<String> sintomas;
-	private List<String> alergias;
-	private List<String> enfermedadesPrevias;
+	private String sintomas;
+	private String alergias;
+	private String enfermedadesPrevias;
 	private String fecha;
 	private String hora;
 	
@@ -48,31 +48,32 @@ public class CitaMedicaBean implements Serializable{
 		this.list = list;
 	}
 
-	public List<String> getSintomas() {
+	
+	
+	public String getSintomas() {
 		return sintomas;
 	}
 
-	public void setSintomas(List<String> sintomas) {
+	public void setSintomas(String sintomas) {
 		this.sintomas = sintomas;
 	}
 
-	public List<String> getAlergias() {
+	public String getAlergias() {
 		return alergias;
 	}
 
-	public void setAlergias(List<String> alergias) {
+	public void setAlergias(String alergias) {
 		this.alergias = alergias;
 	}
 
-	public List<String> getEnfermedadesPrevias() {
+	public String getEnfermedadesPrevias() {
 		return enfermedadesPrevias;
 	}
 
-	public void setEnfermedadesPrevias(List<String> enfermedadesPrevias) {
+	public void setEnfermedadesPrevias(String enfermedadesPrevias) {
 		this.enfermedadesPrevias = enfermedadesPrevias;
 	}
 
-	
 	public String getFecha() {
 		return fecha;
 	}

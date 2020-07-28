@@ -24,9 +24,9 @@ public class CitaMedica implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private List<String> sintomas;
-	private List<String> alergias;
-	private List<String> enfermedadesPrevias;
+	private String sintomas;
+	private String alergias;
+	private String enfermedadesPrevias;
 	private String fecha;
 	private String hora;
 	
@@ -43,20 +43,21 @@ public class CitaMedica implements Serializable{
 	
 	
 	
-	/**
-	 * @param sintomas
-	 * @param alergias
-	 * @param enfermedadesPrevias
-	 * @param turno
-	 */
-	public CitaMedica(List<String> sintomas, List<String> alergias, List<String> enfermedadesPrevias,String fecha, String hora) {
+	
+	
+
+	
+	public CitaMedica(String sintomas, String alergias, String enfermedadesPrevias, String fecha,
+			String hora) {
 		super();
 		this.sintomas = sintomas;
 		this.alergias = alergias;
 		this.enfermedadesPrevias = enfermedadesPrevias;
 		this.fecha = fecha;
-		this.hora=hora;
+		this.hora = hora;
 	}
+
+
 
 	/**
 	 * 
@@ -92,29 +93,42 @@ public class CitaMedica implements Serializable{
 	}
 
 	
-	public List<String> getSintomas() {
+	
+	public String getSintomas() {
 		return sintomas;
 	}
 
-	public void setSintomas(List<String> sintomas) {
+
+
+	public void setSintomas(String sintomas) {
 		this.sintomas = sintomas;
 	}
 
-	public List<String> getAlergias() {
+
+
+	public String getAlergias() {
 		return alergias;
 	}
 
-	public void setAlergias(List<String> alergias) {
+
+
+	public void setAlergias(String alergias) {
 		this.alergias = alergias;
 	}
 
-	public List<String> getEnfermedadesPrevias() {
+
+
+	public String getEnfermedadesPrevias() {
 		return enfermedadesPrevias;
 	}
 
-	public void setEnfermedadesPrevias(List<String> enfermedadesPrevias) {
+
+
+	public void setEnfermedadesPrevias(String enfermedadesPrevias) {
 		this.enfermedadesPrevias = enfermedadesPrevias;
 	}
+
+
 
 	public SignosVitales getSignosVit() {
 		return signosVit;
