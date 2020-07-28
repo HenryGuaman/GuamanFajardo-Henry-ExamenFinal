@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+    
+<h:head>
+		
+	
+	<title>Categorías</title>
+	<style>
+		.tabla {
+			border-collapse: collapse;
+		}
+		
+		.cabeceraTabla {
+			text-align: center;
+			background: none repeat scroll 0 0 #E5E5E5;
+			border-bottom: 5px solid #BBBBBB;
+			padding: 8px;
+		}
+		
+		.filaPar {
+			text-align: center;
+			background: none repeat scroll 0 0 #FFFFFFF;
+			border-top: 5px solid #BBBBBB;
+		}
+		
+		.filaImpar {
+			text-align: center;
+			background: none repeat scroll 0 0 #F9F9F9;
+			border-top: 5px solid #BBBBBB;
+		}
+	</style>
+	
+</h:head> 
+<body> 
+	
+	<h:form >
+		<h:dataTable border="1" style="margin: 0 auto;" value="#{CitaMedicaBean.list}" var="c" styleClass="tabla"
+			headerClass="cabeceraTabla" rowClasses="filaPar,filaImpar">
+			<h:column >
+				<f:facet name="header">Codigo</f:facet>#{c.codigo}</h:column>
+			<h:column>
+				<f:facet name="header">Sintoma</f:facet>
+				<h:inputText value="#{c.descripcion}" size="10"
+					rendered="#{c.editable}" />
+				<h:outputText value="#{c.descripcion}" rendered="#{not c.editable}" />
+			</h:column>			
+			<h:column>
+				<f:facet name="header">Alergia</f:facet>
+				<h:commandLink value="Eliminar" action="#{categoriaBean.delete(c)}" />
+			</h:column>
+			
+				<f:facet name="header">Enfermedad</f:facet>
+				<h:inputText value="#{c.descripcion}" size="10"
+					rendered="#{c.editable}" />
+				<h:outputText value="#{c.descripcion}" rendered="#{not c.editable}" />
+			</h:column>			
+			<h:column>
+				<f:facet name="header">Fecha</f:facet>
+				<h:commandLink value="Eliminar" action="#{categoriaBean.delete(c)}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Hora</f:facet>
+				<h:commandLink value="Eliminar" action="#{categoriaBean.delete(c)}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Accion</f:facet>
+				<h:commandLink value="Editar" action="#{categoriaBean.edit(c)}"
+					rendered="#{not c.editable}" />
+				<h:commandLink value="Guardar" action="#{categoriaBean.save(c)}"
+					rendered="#{c.editable}" />
+			</h:column>
+		</h:dataTable>
+		<br></br>
+		<br></br>
+		<br></br>
+		<ul style="text-align:center;" >
+			<li >Agregar Nueva Categoría:<h:inputText size="12" value="#{categoriaBean.descripcion}"/></li>
+		</ul>
+		<div style="text-align:center;">
+			<h:commandButton class="btn btn-action" value="Agregar" action="#{categoriaBean.add}" />
+		</div>
+	</h:form>
+	
+</body> 
+</html>
